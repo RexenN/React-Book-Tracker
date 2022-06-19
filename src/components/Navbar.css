@@ -1,0 +1,29 @@
+.navbar{
+    background: rgb(73, 103, 224);
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+   
+
+}
+.brand{
+   text-decoration: none;
+   color: #fff;
+   margin-left: 80px;
+   font-size: 20px;
+  
+}
+.add{
+    margin-right: 90px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    font-size: 22px;
+}
+.add:hover{
+    background: #fff;
+    color: #333;
+}
