@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import DeatilsList from '../components/DeatilsList';
+
 
 export default function Home() {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -12,11 +14,16 @@ export default function Home() {
     })
     .then(data => {
       setData(data);
-      
+
     })
+    
   }, []);
 
   return (
-    <div>Home</div>
+    <div className='home'>
+      {error && <p className='error'>{error}</p>}
+      {loading && <p className='loading'>Loading...</p>}
+      {data && <DeatilsList books={data} />}
+    </div>
   )
 }
