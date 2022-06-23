@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Detailss from './Detailss.css'
 import { useParams } from 'react-router-dom';
 
 
@@ -13,7 +14,7 @@ export default function Details() {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      setLoading(false);
       try {
         const result = await fetch(url);
         const data = await result.json();
@@ -24,8 +25,8 @@ export default function Details() {
       setLoading(false);
     }
     fetchData();
-    console.log(data)
-  })
+    
+  }, [])
 
   return (
     <div className="book">
@@ -34,9 +35,10 @@ export default function Details() {
       {data && (
         <>
           <h3 className="title">{data.title}</h3>
-          <p className='author'>{data.author}</p>
-          <p className='pages'>{data.pages}</p>
+         
+         
           <small className='summary'>{data.summary}</small>
+          <p className='pages'>Pages: {data.pages}</p>,  <p className='author'>Author: {data.author}</p>
        </>
       )}
     </div>

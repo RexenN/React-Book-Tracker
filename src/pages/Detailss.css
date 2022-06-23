@@ -1,0 +1,24 @@
+.book {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.title {
+    color: rgb(48, 45, 45);
+    font-size: 23px;
+}
+.author {
+   
+    text-align: left;
+    color: rgb(39, 36, 36);
+    font-size: 18px;
+    
+}
+.pages {
+    text-align: end;
+    font-size: 14px;
+    color: rgb(38, 38, 40);
+}

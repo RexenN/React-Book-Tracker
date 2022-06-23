@@ -19,7 +19,7 @@ export default function useFetch() {
       setLoading(false);
     }
     fetchData();
-  })
+  }, [])
 
   return (
     <div></div>
