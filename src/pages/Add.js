@@ -1,34 +1,35 @@
 import { useState, useEffect } from 'react'
 import Addd from './Addd.css'
 import { useNavigate } from 'react-router-dom';
+import { useFetch } from '../hooks/useFetch'
 
 export default function Add() {
 
   
-    const [data, setData] = useState([])
+    
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [pages, setPages] = useState("");
     const [summary, setSummary] = useState("");
     const navigate = useNavigate();
 
-    useEffect(() => {
-      fetch('http://localhost:3000/books', 'SetData')
-      .then(
-        res => {return res.json();
-        })
-      .then(
-        data => {setData(data);
-        })
-      }, []);
+    const {postData, data} = useFetch('http://localhost:3000/books', 'POST')
+
     const handleSubmit = (e) => {
       e.preventDefault()
-      setData({title, author, pages, summary})
+      postData({title, author, pages, summary})
+      
     }
-    
 
+    useEffect(() => {
+      if(data) {
+        navigate('/')
+      }
+    }, [data])
   return (
     <div className='add-book'>
+      <h2 className='page-title'>Add New Recipe</h2>
+
       <form onSubmit={handleSubmit}>
         <label>
           <span>Book Title:</span>
